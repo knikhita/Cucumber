@@ -1,37 +1,96 @@
-Given(/^I am on housing's home page$/) do
-  @browser = Selenium::WebDriver.for :firefox
-  @browser.navigate.to "https://beta.housing.com"
+#Scenario : 1st
+
+Given(/^I am on housing home page$/) do
+  @b = Selenium::WebDriver.for :firefox
+  @b.navigate.to "https://housing.com"
   wait = Selenium::WebDriver::Wait.new(:timeout => 10)
-  element = @browser.find_element(:css,'span.city-select-name').click
-  sleep 5
-  print @browser.current_url.blue
+
 
 end
+
+When(/^I click on Pune City$/) do
+  city_select = @b.find_element(:xpath,'//*[@id="header"]/header/div[1]/div[2]/div[4]/div/span/a[6]')
+  city_select.click()
+  sleep 50
+
+end
+
+Then(/^Pune city gets selected$/) do
+  print @b.current_url.blue
+end
+
+#Scenario : 2nd
+Given(/^I am on Home page$/) do
+  print "I am on PUNE CITY HOME PAGE"
+end
+
 
 When(/^I click on Login option$/) do
-  login_op = @browser.find_element(:id,'loginModalBtn')
-  login_op.click()
+  login_option = @b.find_element(:id => 'loginModalBtn').click
+  sleep 20
 end
 
-Then(/^Login modal gets opened$/) do
-  puts "Login modal gets opened successfully!".red
-  print @browser.current_url.red
+When(/^I checked if modal gets opened$/) do
+  #login_modal = @b.find_element(:class => '.lg-cont').displayed?
+  #puts "Login modal gets opened"
+  #if (@b.find_elements(:class =>'.lg-cont').size >0)
+  if (@b.find_elements(:class =>'.lg-cont'))
+    puts 'Login modal gets opened'.green
+  else
+    puts 'Login modal NOT FOUND'.red
+  end
 end
 
-Given(/^I am on housing's Login modal$/) do
-#signin_op = @browser.find_elements(:class,'.lg-cs-login.lg-cs')
-#signin_op.click()
+When(/^I select Sign In option$/) do
+  sign_in = @b.find_element(:class => '.lg-cs-login')
+  sign_in.click()
+  sleep 20
 
 end
 
-When(/^I enter mail id$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^Email & Password fields are shown$/) do
+  #mail_text_field = @b.find_elements(:class => '.input.text')
+  #mail_text_field.displayed?
+  if (@b.find_elements(:class => '.input.text').size > 0)
+    puts 'Mail text field is present'
+  else
+    puts 'Mail text field is NOT FOUND'
+  end
+
+  if (@b.find_elements(:class => '.input.password').size > 0)
+    puts 'Password field is present'
+  else
+    puts 'Password field is NOT FOUND'
+  end
+  sleep 20
+
 end
 
-When(/^I enter password$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+
+#Scenario : 3rd
+Given(/^I am on Login modal$/) do
+  puts "Login modal is available"
 end
 
-Then(/^I press login button$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I Entered Email id$/) do
+  mail_text_field = @b.find_elements(:class => '.input.text').click
+  mail_text_field = @b.find_elements(:class => '.input.text').send_keys('1nicks52@gmail.com')
+
+  sleep 20
+end
+
+When(/^I entered password$/) do
+  password = @b.find_elements(:class => '.input.password').click
+  password = @b.find_elements(:class => '.input.password').send_keys('Nikita@123')
+end
+
+When(/^I click on Login button$/) do
+  login_button = @b.find_element(:class => '.s2-btn ')
+  login_button.click()
+  sleep 30
+end
+
+Then(/^User get successfully logged in$/) do
+  name_plate= @b.find_element(:class => '.link-btn.name_plate').displayed?
+  puts "User gets successfullylogged in"
 end
