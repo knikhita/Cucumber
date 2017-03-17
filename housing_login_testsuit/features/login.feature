@@ -16,3 +16,7 @@ Feature: Selecting desired city & Login successfully to housing.com
     And I entered password
     And I click on Login button
     Then User get successfully logged in
+    When I click on name plate dropdown
+    Then Dropdown gets opened
+    When I click on Logout option
+    Then User gets logout
