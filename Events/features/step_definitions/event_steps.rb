@@ -12,7 +12,7 @@ When(/^I select Pune City$/) do
 end
 
 When (/^URL get changed$/) do
-  print @b.current_url.blue
+  puts @b.current_url.blue
 
 end
 

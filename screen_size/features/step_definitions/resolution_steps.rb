@@ -15,6 +15,7 @@ When(/^I resize the window$/) do
 end
 
 Then(/^Page is adjusting as per resolution$/) do
-  puts "OK!".blue
+  puts "Screen is opening in given resolution".blue
+  sleep 10
   @b.quit
 end
