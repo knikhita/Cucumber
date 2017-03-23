@@ -1,8 +1,5 @@
-
+@login
 Feature: Selecting desired city & Login successfully to housing.com
-
-
-
   @mail_login
   Scenario: Selecting login option
     Given I am on housing home page
