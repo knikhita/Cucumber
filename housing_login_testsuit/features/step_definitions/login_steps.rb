@@ -1,17 +1,9 @@
 Given(/^I am on housing home page$/) do
   @b = Selenium::WebDriver.for :firefox
   @b.navigate.to "https://housing.com"
-  wait = Selenium::WebDriver::Wait.new(:timeout => 2)
-end
-
-When(/^I click on Pune City$/) do
   city_select = @b.find_element(:xpath,'//*[@id="header"]/header/div[1]/div[2]/div[4]/div/span/a[6]')
   city_select.click()
   sleep 10
-end
-
-Then(/^Pune city gets selected$/) do
-  puts @b.current_url.blue
 end
 
 When(/^I click on Login option$/) do
