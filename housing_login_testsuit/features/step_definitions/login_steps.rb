@@ -109,3 +109,23 @@ When(/^I Entered phone number$/) do
   mail_text_field.send_keys('9763441692')
   wait = Selenium::WebDriver::Wait.new(:timeout => 20)
 end
+
+When(/^I select Register option$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I Entered name,phone number & password$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I click on sign up button$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^OTP page shown$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I entered correct OTP & click on VERIFY button$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end

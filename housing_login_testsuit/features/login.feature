@@ -27,3 +27,15 @@ Feature: Selecting desired city & Login successfully to housing.com
       And I entered password
       And I click on Login button
       Then User get successfully logged in
+
+@register_main
+    @phone_register
+        Scenario: Signing up as new User
+          Given I am on housing home page
+          When I click on Login option
+          And I checked if modal gets opened
+          And I select Register option
+          And I Entered name,phone number & password
+          And I click on sign up button
+          Then OTP page shown
+          When I entered correct OTP & click on VERIFY button
