@@ -8,5 +8,5 @@ Scenario Outline: Login Success and Failure
 
 Examples:
     | type      | status        |
-    | mail     | successfully      |
+    | mail     | successfully   |
     | phone   | successfully    |

@@ -111,15 +111,22 @@ When(/^I Entered phone number$/) do
 end
 
 When(/^I select Register option$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  #register = @b.find_element(:class => '.lg-cs-acc').click
+  register = @b.find_element(:xpath => '//*[@id="react-modal"]/div/div/div/div[2]/div/div/div/div[2]/div[4]/div[2]').click
+  sleep 20
 end
 
 When(/^I Entered name,phone number & password$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  name =@b.find_element(:xpath => '//*[@id="react-modal"]/div/div/div/div[2]/div/div/div[2]/div[2]/form/div[1]/div/input').send_keys("Shubhangi Kale")
+  phone =@b.find_element(:xpath => '//*[@id="react-modal"]/div/div/div/div[2]/div/div/div[2]/div[2]/form/div[2]/div/input').send_keys("9763441692")
+  password =@b.find_element(:xpath => '//*[@id="react-modal"]/div/div/div/div[2]/div/div/div[2]/div[2]/form/div[3]/div[1]/div/input').send_keys("Nikita@123")
+  sleep 10
+
 end
 
 When(/^I click on sign up button$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  sign_up_btn = @b.find_element(:xpath => '//*[@id="react-modal"]/div/div/div/div[2]/div/div/div[2]/div[2]/form/button').click
+  sleep 10
 end
 
 Then(/^OTP page shown$/) do
